@@ -1,0 +1,132 @@
+/* Sticky footer styles
+-------------------------------------------------- */
+
+html,
+body {
+  height: 100%;
+  font-family: tahoma;
+}
+
+/* Wrapper for page content to push down footer */
+#wrap {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  /* Negative indent footer by it's height */
+  margin: 0 auto -60px;
+}
+
+#header {
+  margin-top: 20px;
+  border-bottom: 1px solid #000;
+}
+  #header h1 {
+    font-weight: normal;
+  }
+
+  #header #social-links {
+    text-align: right;
+    font-size: 24px;
+    padding-top: 35px;
+  }
+    #header #social-links a {
+      color: #3e3e3e;
+      text-decoration: none;
+      padding-right: 6px;
+    }
+    #header #social-links a:last-child {
+      padding-right: 0;
+    }
+
+.section-title {
+  border-bottom: 3px double #000;
+}
+
+.section-title h2 {
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 28px;
+  margin-bottom: 0;
+}
+
+.section-title .sort-box {
+  margin-top: 20px;
+  text-align: right;
+}
+
+.section-title .order-btn {
+  font-weight: bold;
+  font-size: 12px;
+  color: #a9a9a9;
+  text-decoration: none;
+}
+
+.section-title .order-btn.selected {
+  color: #ff0000;
+}
+
+.newspapers {
+
+}
+
+.link-container .header {
+  margin-top: 12px;
+  border-bottom: 1px solid #000;
+}
+
+.link-container .letter-box {
+  background-color: #000;
+  color: #fff;
+  padding: 0 5px;
+  width: 10px;
+}
+
+.link-container .links {
+}
+
+.link-container ul {
+  list-style: none;
+  margin: 0 0 0 6px;
+}
+
+.link-container li.popular {
+  font-weight: bold;
+}
+
+.link-container.hover .links {
+  background-color: #efefef;
+}
+.link-container.hover .header {
+  border-bottom-color: #ff0000;
+}
+.link-container.hover .letter-box {
+  background-color: #ff0000;
+}
+
+
+#sports-radio-tv {
+  margin-top: 24px;
+}
+
+/* Set the fixed height of the footer here */
+#push,
+#footer {
+  height: 60px;
+}
+#footer {
+  background-color: #fff;
+}
+
+/* Lastly, apply responsive CSS fixes as necessary */
+@media (max-width: 767px) {
+  #footer {
+    margin-left: -20px;
+    margin-right: -20px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+.container .credit {
+  margin: 10px 0;
+}
