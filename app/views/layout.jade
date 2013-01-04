@@ -1,0 +1,36 @@
+include mixins/section-box
+
+doctype 5
+html
+  head
+    title Gooyand
+    link(rel='stylesheet', href='/css/bootstrap.css')
+    link(rel='stylesheet', href='/css/bootstrap-responsive.css')
+    link(rel='stylesheet', href='/css/font-awesome.css')
+    link(rel='stylesheet', href='/css/font-awesome-ie7.css')
+    link(rel='stylesheet', href='/css/gooyand.css')
+  body
+    div#wrap
+      div#header.container
+        div#logo.span9
+          h1 Gooyand
+        div#social-links.span2
+          a(href="#", title="Facebook")
+            i.icon-facebook-sign
+          a(href="#", title="Twitter")
+            i.icon-twitter
+          a(href="#", title="GitHub")
+            i.icon-github
+      div.container
+        block content
+      div#push
+    div#footer
+      div.container
+        hr
+        p.muted.credit
+          | A remake of <a href="http://gooya.com">gooya.com</a> by <a href="http://web.commeng.org">commeng.org</a> <br />
+          | Web should be clean, simple, and beautiful.
+
+    script(src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js")
+    script(src="/js/bootstrap.js")
+    script(src="/js/gooyand.js")

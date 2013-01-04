@@ -1,0 +1,9 @@
+mixin section-box(span, title)
+  div(class='span' + span + ' section-title')
+    div.row
+      div(class='span' + (span-1))
+        h2= title
+      div.span1.sort-box
+        i.icon-reorder
+        a(href="#").order-by-alpha.selected.order-btn A
+        a(href="#").order-by-popularity.order-btn P

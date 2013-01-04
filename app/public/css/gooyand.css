@@ -1,18 +1,13 @@
-/* Sticky footer styles
--------------------------------------------------- */
-
 html,
 body {
   height: 100%;
   font-family: tahoma;
 }
 
-/* Wrapper for page content to push down footer */
 #wrap {
   min-height: 100%;
   height: auto !important;
   height: 100%;
-  /* Negative indent footer by it's height */
   margin: 0 auto -60px;
 }
 
@@ -42,28 +37,28 @@ body {
   border-bottom: 3px double #000;
 }
 
-.section-title h2 {
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 28px;
-  margin-bottom: 0;
-}
+  .section-title h2 {
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 28px;
+    margin-bottom: 0;
+  }
 
-.section-title .sort-box {
-  margin-top: 20px;
-  text-align: right;
-}
+  .section-title .sort-box {
+    margin-top: 20px;
+    text-align: right;
+  }
 
-.section-title .order-btn {
-  font-weight: bold;
-  font-size: 12px;
-  color: #a9a9a9;
-  text-decoration: none;
-}
+  .section-title .order-btn {
+    font-weight: bold;
+    font-size: 12px;
+    color: #a9a9a9;
+    text-decoration: none;
+  }
 
-.section-title .order-btn.selected {
-  color: #ff0000;
-}
+  .section-title .order-btn.selected {
+    color: #ff0000;
+  }
 
 .newspapers {
 
@@ -79,6 +74,7 @@ body {
   color: #fff;
   padding: 0 5px;
   width: 10px;
+  text-transform: uppercase;
 }
 
 .link-container .links {
@@ -91,6 +87,10 @@ body {
 
 .link-container li.popular {
   font-weight: bold;
+}
+
+.link-container li a {
+  color: #000;
 }
 
 .link-container.hover .links {

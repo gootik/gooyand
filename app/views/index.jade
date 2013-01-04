@@ -1,0 +1,53 @@
+extends layout
+
+block content
+  div.row
+    div.span6
+      div.row
+        mixin section-box(6, 'Newspapers')
+      div.row.newspapers
+        div.span6
+          div.row
+            - var i = 0
+            each list, letter in links.news
+              div.span2.link-container
+                div.header
+                  div.letter-box= letter
+                div.links
+                  ul
+                    each link in list
+                      li(data-numclicks=link.num_clicks)
+                        a(href=link.url)= link.title
+
+    div.span5.offset1
+      div.row
+        mixin section-box(5, 'Blogs')
+        div.span5.link-container
+          div.links
+            ul
+              each list, letter in links.blog
+                each link in list
+                  li(data-numclicks=link.num_clicks)
+                    a(href=link.url)= link.title
+
+      div#sports-radio-tv.row
+        div.span2
+          div.row
+            mixin section-box(2, 'Sports')
+            div.span2.link-container
+              div.links
+                ul
+                  each list, letter in links.sport
+                    each link in list
+                      li(data-numclicks=link.num_clicks)
+                        a(href=link.url)= link.title
+        div.span3
+          div.row
+            mixin section-box(3, 'Radio &amp; TV')
+            div.span3.link-container
+              div.links
+                ul
+                  each list, letter in links.radio_tv
+                    each link in list
+                      li(data-numclicks=link.num_clicks)
+                        a(href=link.url)= link.title
