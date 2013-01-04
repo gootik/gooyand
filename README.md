@@ -17,7 +17,7 @@ Note
 Sample data is provided to get the site running. To import the data into your mongoDB instance, do the following:
 
 1. Run the app and go to `localhost:3000/setup` with your browser
-2. *optional* Remove app.get('/setup') 
+2. *optional* Remove `app.get('/setup')` 
 
 
 [1]: http://www.gooya.com
