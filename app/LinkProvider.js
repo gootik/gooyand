@@ -259,6 +259,23 @@ LinkProvider.prototype = {
       }
     });
   }
+
+  // increment click count
+  ,addClick: function(id, ip, callback) {
+    this.collection(function(err, collection) {
+      if(err)
+        callback(err);
+      else {
+        collection.update({ _id: new ObjectID(id)}, { $inc: {num_clicks: 1}}, {upsert: false, safe:true}, function(err) {
+          if(err)
+            callback(err);
+          else {
+            callback(null);
+          }
+        });
+      }
+    });
+  }
 };
 
 //new LinkProvider('localhost', 27017).importLinks();

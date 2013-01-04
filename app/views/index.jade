@@ -17,7 +17,7 @@ block content
                   ul
                     each link in list
                       li(data-numclicks=link.num_clicks)
-                        a(href=link.url)= link.title
+                        a(href=link.url, id=link._id)= link.title
 
     div.span5.offset1
       div.row
@@ -28,7 +28,7 @@ block content
               each list, letter in links.blog
                 each link in list
                   li(data-numclicks=link.num_clicks)
-                    a(href=link.url)= link.title
+                    a(href=link.url, id=link._id)= link.title
 
       div#sports-radio-tv.row
         div.span2
@@ -40,7 +40,7 @@ block content
                   each list, letter in links.sport
                     each link in list
                       li(data-numclicks=link.num_clicks)
-                        a(href=link.url)= link.title
+                        a(href=link.url, id=link._id)= link.title
         div.span3
           div.row
             mixin section-box(3, 'Radio &amp; TV')
@@ -50,4 +50,4 @@ block content
                   each list, letter in links.radio_tv
                     each link in list
                       li(data-numclicks=link.num_clicks)
-                        a(href=link.url)= link.title
+                        a(href=link.url, id=link._id)= link.title

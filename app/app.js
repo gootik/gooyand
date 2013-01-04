@@ -40,10 +40,19 @@ app.get('/', function(req, res) {
     if(err)
       console.log(err);
 
-    console.log(links);
     res.render('index', {
       links: links
     });
+  });
+});
+
+app.post('/click', function(req, res) {
+  var id = req.body.id
+    , ip = req.headers['X-Forwarded-For'];
+
+  linkProvider.addClick(id, ip, function(err) {
+
+    res.send({});
   });
 });
 
