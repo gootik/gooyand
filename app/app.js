@@ -11,15 +11,23 @@ var express = require('express')
   , LinkProvider = require('./LinkProvider').LinkProvider
   , LINK_TYPES = require('./LinkProvider').LINK_TYPES;
 
+
+var CONFIG = {
+  defaultPort: 3000,
+  mongoPort: 27017,
+  canSetup: false
+};
+
 var app = express()
-  , linkProvider = new LinkProvider('localhost', 27017)
+  , linkProvider = new LinkProvider('localhost', CONFIG.mongoPort)
   ;
+
 
 
 app.disable('x-powered-by');
 
 app.configure(function(){
-  app.set('port', process.env.PORT || 3000);
+  app.set('port', process.env.PORT || CONFIG.defaultPort);
   app.set('views', __dirname + '/views');
   app.set('view engine', 'jade');
   app.use(express.favicon(__dirname + '/public/favicon.ico', {maxAge: 2592000000}));
@@ -28,9 +36,9 @@ app.configure(function(){
   app.use(express.methodOverride());
   app.use(express.cookieParser('your secret here'));
   app.use(express.session());
-  app.use(app.router);
   app.use(require('stylus').middleware(__dirname + '/public'));
   app.use(express.static(path.join(__dirname, 'public')));
+  app.use(app.router);
 });
 
 app.configure('development', function(){
@@ -60,9 +68,17 @@ app.post('/click', function(req, res) {
 });
 
 app.get('/setup', function(req, res) {
-  linkProvider.importLinks();
+  if(CONFIG.canSetup) {
+    linkProvider.importLinks();
+    res.send('Done');
+  } else {
+    res.send('Disabled');
+  }
+});
 
-  res.send('Done');
+// Redirect all bad links
+app.get('*', function(req, res) {
+  res.redirect('/');
 });
 
 http.createServer(app).listen(app.get('port'), function(){

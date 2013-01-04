@@ -43,6 +43,18 @@ LinkProvider = function(host, port) {
 LinkProvider.prototype = {
 
   // To import links... maybe automatic later?
+  // Simple scrapping with jQuery on gooya.com:
+  //
+  // $(function() {
+  //  var sets  = $('a[target="_blank"]');
+  //  var links = [];
+  //
+  //  sets.each(function(i, link) {
+  //    var link = $(link);
+  //    if(link.siblings('img').length)
+  //      links.push({url: link.attr('href'), title: link.html(), num_clicks:0});
+  //  });
+  // });
   importLinks: function(callback) {
     var links = [
       {url:"http://www.varzesh3.com/", title:"Varzesh3", num_clicks: 0, type: LINK_TYPES.SPORT},
@@ -214,6 +226,8 @@ LinkProvider.prototype = {
     });
   }
 
+  // Find all links and sort based on type and group by their title's first letter
+  // ex: retArray['news']['a'] = [{obj1}, {obj2}]
   ,findAllSortedByType: function(callback) {
     this.collection(function(err, collection) {
       if(err)
@@ -261,6 +275,7 @@ LinkProvider.prototype = {
   }
 
   // increment click count
+  // TODO cap click count / minute / IP
   ,addClick: function(id, ip, callback) {
     this.collection(function(err, collection) {
       if(err)
