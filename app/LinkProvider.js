@@ -274,9 +274,15 @@ LinkProvider.prototype = {
     });
   }
 
+  ,getDate: function() {
+    var d = new Date();
+    return d.getDate() + '-' + d.getMonth() + '-' + d.getFullYear();
+  }
+
   // increment click count
   // TODO cap click count / minute / IP
   ,addClick: function(id, ip, callback) {
+    var date = this.getDate();
     this.collection(function(err, collection) {
       if(err)
         callback(err);
@@ -285,7 +291,16 @@ LinkProvider.prototype = {
           if(err)
             callback(err);
           else {
-            callback(null);
+            var update = {};
+            update['clicks.' + date] = 1;
+
+            collection.update({ _id: new ObjectID(id)}, { $inc: update}, {upsert: true, safe:true}, function(err) {
+              if(err)
+                callback(err);
+              else {
+                callback(null);
+              }
+            });
           }
         });
       }
