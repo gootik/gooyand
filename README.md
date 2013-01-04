@@ -8,6 +8,7 @@ To Run
 ================
     git clone https://github.com/shezarkhani/gooyand.git
     cd gooyand
+    cd app
     npm install
     node app
 
