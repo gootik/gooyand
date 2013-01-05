@@ -18,6 +18,7 @@ Sample data is provided to get the site running. To import the data into your mo
 
 1. Run the app and go to `localhost:3000/setup` with your browser
 2. *optional* Remove `app.get('/setup')` 
+3. *optional* Disable the setup page in `app.js` `CONFIG`
 
 Created By
 ---------------------
