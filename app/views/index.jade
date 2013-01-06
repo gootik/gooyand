@@ -16,7 +16,8 @@ block content
                 div.links
                   ul
                     each link in list
-                      li(data-numclicks=link.num_clicks)
+                      - var klass = (link.num_clicks > 5 ? 'popular' : '')
+                      li(data-numclicks=link.num_clicks, class=klass)
                         a(href=link.url, id=link._id)= link.title
 
     div.span5.offset1
@@ -28,7 +29,8 @@ block content
               ul
                 each list, letter in links.blog
                   each link in list
-                    li(data-numclicks=link.num_clicks)
+                    - var klass = (link.num_clicks > 5 ? 'popular' : '')
+                    li(data-numclicks=link.num_clicks, class=klass)
                       a(href=link.url, id=link._id)= link.title
 
       div#sports-radio-tv.row
@@ -41,7 +43,8 @@ block content
                   ul
                     each list, letter in links.sport
                       each link in list
-                        li(data-numclicks=link.num_clicks)
+                        - var klass = (link.num_clicks > 5 ? 'popular' : '')
+                        li(data-numclicks=link.num_clicks, class=klass)
                           a(href=link.url, id=link._id)= link.title
         div.span3
           div.row
@@ -52,5 +55,6 @@ block content
                   ul
                     each list, letter in links.radio_tv
                       each link in list
-                        li(data-numclicks=link.num_clicks)
+                        - var klass = (link.num_clicks > 5 ? 'popular' : '')
+                        li(data-numclicks=link.num_clicks, class=klass)
                           a(href=link.url, id=link._id)= link.title
