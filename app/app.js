@@ -1,8 +1,8 @@
-
 /**
- * Module dependencies.
+ * Gooyand application
+ *
+ * @author Sasan Hezarkhani
  */
-
 var express = require('express')
   , connect = require('connect')
   , routes = require('./routes')
@@ -12,19 +12,21 @@ var express = require('express')
   , LinkProvider = require('./LinkProvider').LinkProvider
   , LINK_TYPES = require('./LinkProvider').LINK_TYPES;
 
-
+/*****************
+ * CONFIG
+ ******************/
 var CONFIG = {
   defaultPort: 3000,
   mongoPort: 27017,
-  canSetup: false
+  canSetup: false,
+  isBeta: false
 };
 
 var app = express()
   , linkProvider = new LinkProvider('localhost', CONFIG.mongoPort)
   ;
 
-
-
+// Don't show express
 app.disable('x-powered-by');
 
 app.configure(function(){
@@ -53,15 +55,16 @@ app.get('/', function(req, res) {
       console.log(err);
 
     res.render('index', {
+      beta: CONFIG.isBeta,
       links: links
     });
   });
 });
 
+// TODO per ip cap
 app.post('/click', function(req, res) {
   var id = req.body.id
     , ip = req.headers['X-Forwarded-For'];
-
 
   linkProvider.addClick(id, ip, function(err) {
 

@@ -10,6 +10,7 @@
  * }
  * Meh
  *
+ * @author Sasan Hezarkhani
  ***************************/
 
 var mongo = require('mongodb')
@@ -307,8 +308,6 @@ LinkProvider.prototype = {
     });
   }
 };
-
-//new LinkProvider('localhost', 27017).importLinks();
 
 // Exports
 exports.LinkProvider = LinkProvider;

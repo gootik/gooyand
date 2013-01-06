@@ -23,15 +23,18 @@ html
   body
     div#wrap
       div#header.container
-        div#logo.span9
-          h1 Gooyand
-        div#social-links.span2
-          a(href="#", title="Facebook")
-            i.icon-facebook-sign
-          a(href="#", title="Twitter")
-            i.icon-twitter
-          a(href="#", title="GitHub")
-            i.icon-github
+        div.row
+          div#logo.span9
+            h1.span3 Gooyand
+            if beta
+              sup beta
+          div#social-links.span2
+            a(href="#", title="Facebook")
+              i.icon-facebook-sign
+            a(href="#", title="Twitter")
+              i.icon-twitter
+            a(href="#", title="GitHub")
+              i.icon-github
       div.container
         block content
       div#push
