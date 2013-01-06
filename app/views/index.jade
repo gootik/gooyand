@@ -4,8 +4,8 @@ block content
   div.row
     div.span6
       div.row
-        mixin section-box(6, 'Newspapers')
-      div.row.newspapers
+        mixin section-box(6, 'Newspapers', 'newspapers')
+      div#newspapers.row.newspapers
         div.span6
           div.row
             - var i = 0
@@ -21,33 +21,36 @@ block content
 
     div.span5.offset1
       div.row
-        mixin section-box(5, 'Blogs')
-        div.span5.link-container
-          div.links
-            ul
-              each list, letter in links.blog
-                each link in list
-                  li(data-numclicks=link.num_clicks)
-                    a(href=link.url, id=link._id)= link.title
+        mixin section-box(5, 'Blogs', 'blogs')
+        div#blogs
+          div.span5.link-container
+            div.links
+              ul
+                each list, letter in links.blog
+                  each link in list
+                    li(data-numclicks=link.num_clicks)
+                      a(href=link.url, id=link._id)= link.title
 
       div#sports-radio-tv.row
         div.span2
           div.row
-            mixin section-box(2, 'Sports')
-            div.span2.link-container
-              div.links
-                ul
-                  each list, letter in links.sport
-                    each link in list
-                      li(data-numclicks=link.num_clicks)
-                        a(href=link.url, id=link._id)= link.title
+            mixin section-box(2, 'Sports', 'sports')
+            div#sports
+              div.span2.link-container
+                div.links
+                  ul
+                    each list, letter in links.sport
+                      each link in list
+                        li(data-numclicks=link.num_clicks)
+                          a(href=link.url, id=link._id)= link.title
         div.span3
           div.row
-            mixin section-box(3, 'Radio &amp; TV')
-            div.span3.link-container
-              div.links
-                ul
-                  each list, letter in links.radio_tv
-                    each link in list
-                      li(data-numclicks=link.num_clicks)
-                        a(href=link.url, id=link._id)= link.title
+            mixin section-box(3, 'Radio &amp; TV', 'rtv')
+            div#rtv
+              div.span3.link-container
+                div.links
+                  ul
+                    each list, letter in links.radio_tv
+                      each link in list
+                        li(data-numclicks=link.num_clicks)
+                          a(href=link.url, id=link._id)= link.title

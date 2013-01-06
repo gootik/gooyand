@@ -44,4 +44,59 @@ $(function(){
       }
     });
   });
+
+
+  $('.order-by-alpha').click(function() {
+    var parent = $(this).parent()
+      , box_name = $(this).parent().data('sort')
+      , container = $('#' + box_name);
+
+    parent.find('a').removeClass('selected');
+    $(this).addClass('selected');
+
+    container
+      .find('.ordered')
+      .remove();
+
+    container
+      .children('div')
+      .show();
+  });
+
+  $('.order-by-popularity').click(function() {
+    var parent = $(this).parent()
+      , box_name = parent.data('sort')
+      , container = $('#' + box_name)
+      , links = container.find('li')
+      ;
+
+      parent.find('a').removeClass('selected');
+      $(this).addClass('selected');
+
+      links = links.clone();
+
+      links.sort(function(a,b) {
+        var clicks_a = parseInt($(a).data('numclicks'))
+          , clicks_b = parseInt($(b).data('numclicks'))
+          ;
+        return clicks_b - clicks_a;
+      });
+
+      var oldDiv = container.children('div')
+        , newDiv = $('<div class="ordered link-container">')
+        , list = $('<ul>');
+
+      oldDiv
+        .hide();
+
+      list
+        .append(links);
+
+      newDiv
+        .append(list)
+        .addClass(oldDiv.attr('class'));
+
+      container
+        .append(newDiv);
+  });
 });
