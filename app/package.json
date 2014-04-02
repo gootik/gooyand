@@ -7,7 +7,7 @@
   },
   "dependencies": {
     "connect": "*",
-    "express": "3.0.5",
+    "express": "*",
     "jade": "*",
     "stylus": "*",
     "mongodb": "*"
