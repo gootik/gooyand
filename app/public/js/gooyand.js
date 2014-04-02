@@ -67,7 +67,7 @@ $(function(){
     var parent = $(this).parent()
       , box_name = parent.data('sort')
       , container = $('#' + box_name)
-      , links = container.find('li')
+      , links = container.find('.links li')
       ;
 
       parent.find('a').removeClass('selected');
@@ -95,6 +95,10 @@ $(function(){
       newDiv
         .append(list)
         .addClass(oldDiv.attr('class'));
+
+      container
+        .find('.ordered.link-container')
+          .remove();
 
       container
         .append(newDiv);

@@ -18,7 +18,7 @@ var express = require('express')
 var CONFIG = {
   defaultPort: 3000,
   mongoPort: 27017,
-  canSetup: false,
+  canSetup: true,
   isBeta: false
 };
 
