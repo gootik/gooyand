@@ -23,6 +23,10 @@ $(function(){
     ev.preventDefault();
     $('.known-user-box').slideUp();
   });
+  
+  var openLink = function(url) {
+    $(document).append('<a href="' + url + '" target="_blank").click();
+  }
 
   $('.link-container a').click(function(ev) {
 
@@ -37,10 +41,10 @@ $(function(){
       dataType: 'json',
       type: 'post',
       success: function(data) {
-        window.location = url;
+        openLink(url);
       },
       error: function() {
-        window.location = url;
+	openLink(url);
       }
     });
   });
