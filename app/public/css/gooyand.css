@@ -101,6 +101,10 @@ body {
   color: #000;
 }
 
+.link-container li a:visited {
+  color: #ff0000;
+}
+
 .link-container.hover .links {
   background-color: #efefef;
 }

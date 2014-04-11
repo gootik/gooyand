@@ -25,12 +25,12 @@ $(function(){
   });
   
   var openLink = function(url) {
-    $(document).append('<a href="' + url + '" target="_blank").click();
+    $(document).append('<a href="' + url + '" target="_blank"').click();
   }
 
   $('.link-container a').click(function(ev) {
 
-    ev.preventDefault();
+    // ev.preventDefault();
 
     var id = $(this).attr('id')
       , url = $(this).attr('href');
@@ -41,10 +41,10 @@ $(function(){
       dataType: 'json',
       type: 'post',
       success: function(data) {
-        openLink(url);
+       //  openLink(url);
       },
       error: function() {
-	openLink(url);
+	// openLink(url);
       }
     });
   });
