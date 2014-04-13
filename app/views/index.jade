@@ -18,7 +18,7 @@ block content
                     each link in list
                       - var klass = (link.num_clicks > 5 ? 'popular' : '')
                       li(data-numclicks=link.num_clicks, class=klass)
-                        a(href=link.url, id=link._id, target='_blank')= link.title
+                        a(href=link.url, id=link._id, target='_blank', rel='nofollow')= link.title
 
     div.span5.offset1
       div.row
@@ -31,7 +31,7 @@ block content
                   each link in list
                     - var klass = (link.num_clicks > 5 ? 'popular' : '')
                     li(data-numclicks=link.num_clicks, class=klass)
-                      a(href=link.url, id=link._id, target='_blank')= link.title
+                      a(href=link.url, id=link._id, target='_blank', rel='nofollow')= link.title
 
       div#sports-radio-tv.row
         div.span2
@@ -45,7 +45,7 @@ block content
                       each link in list
                         - var klass = (link.num_clicks > 5 ? 'popular' : '')
                         li(data-numclicks=link.num_clicks, class=klass)
-                          a(href=link.url, id=link._id, target='_blank')= link.title
+                          a(href=link.url, id=link._id, target='_blank', rel='nofollow')= link.title
         div.span3
           div.row
             mixin section-box(3, 'Radio & TV', 'rtv')
@@ -57,4 +57,4 @@ block content
                       each link in list
                         - var klass = (link.num_clicks > 5 ? 'popular' : '')
                         li(data-numclicks=link.num_clicks, class=klass)
-                          a(href=link.url, id=link._id, target='_blank')= link.title
+                          a(href=link.url, id=link._id, target='_blank', rel='nofollow')= link.title
