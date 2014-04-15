@@ -5,6 +5,12 @@
  */
 var express = require('express')
   , connect = require('connect')
+  , compress = require('compression')()
+  , favicon = require('static-favicon')
+  , logger = require('morgan')
+  , bodyParser = require('body-parser')
+  , cookieParser = require('cookie-parser')
+  , methodOverride = require('method-override')
   , routes = require('./routes')
   , user = require('./routes/user')
   , http = require('http')
@@ -29,25 +35,20 @@ var app = express()
 // Don't show express
 app.disable('x-powered-by');
 
-app.configure(function(){
-  app.set('port', process.env.PORT || CONFIG.defaultPort);
-  app.set('views', __dirname + '/views');
-  app.set('view engine', 'jade');
-  app.use(connect.compress())
-  app.use(express.favicon(__dirname + '/public/favicon.ico', {maxAge: 2592000000}));
-  app.use(express.logger('dev'));
-  app.use(express.bodyParser());
-  app.use(express.methodOverride());
-  app.use(express.cookieParser('your secret here'));
-  // app.use(express.session());
-  app.use(require('stylus').middleware(__dirname + '/public'));
-  app.use(express.static(path.join(__dirname, 'public')));
-  app.use(app.router);
-});
 
-app.configure('development', function(){
-  app.use(express.errorHandler());
-});
+app.set('port', process.env.PORT || CONFIG.defaultPort);
+app.set('views', __dirname + '/views');
+app.set('view engine', 'jade');
+app.use(compress);
+app.use(favicon(__dirname + '/public/favicon.ico', {maxAge: 2592000000}));
+app.use(logger('dev'));
+app.use(bodyParser());
+app.use(methodOverride());
+app.use(cookieParser('-->ThisIsMySecred<--'));
+// app.use(express.session());
+app.use(require('stylus').middleware(__dirname + '/public'));
+app.use(express.static(path.join(__dirname, 'public')));
+// app.use(app.router);
 
 app.get('/', function(req, res) {
   linkProvider.findAllSortedByType(function(err, links) {
