@@ -244,6 +244,10 @@ LinkProvider.prototype = {
                 retArray[link.type] = {};
               }
 
+              if(!link || !link.title || link.title == "") {
+                return;
+              }
+
               var letter = link.title.charAt(0).toLowerCase();
               if(retArray[link.type][letter] === undefined) {
                 retArray[link.type][letter] = []
