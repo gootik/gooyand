@@ -1,9 +1,9 @@
 mixin section-box(span, title, sort)
-  div(class='span' + span + ' section-title')
+  div(class='section-title')
     div.row
-      div(class='span' + (span-1))
+      div(class='col-md-8')
         h2= title
-      div.span1.sort-box(data-sort=sort)
+      div.col-md-4.sort-box(data-sort=sort)
         i.icon-reorder
         a(href="#").order-by-alpha.selected.order-btn A
         a(href="#").order-by-popularity.order-btn P

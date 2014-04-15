@@ -6,7 +6,7 @@ html
   head
     title Gooyand
     link(rel='stylesheet', href='/css/bootstrap.min.css')
-    link(rel='stylesheet', href='/css/bootstrap-responsive.min.css')
+    //- link(rel='stylesheet', href='/css/bootstrap-responsive.min.css')
     link(rel='stylesheet', href='/css/font-awesome.css')
     link(rel='stylesheet', href='/css/font-awesome-ie7.css')
     link(rel='stylesheet', href='/css/gooyand.css')
@@ -24,11 +24,11 @@ html
     div#wrap
       div#header.container
         div.row
-          div#logo.span9
-            h1.span3 Gooyand
+          div#logo.col-md-10
+            h1 Gooyand
             if beta
               sup beta
-          div#social-links.span2
+          div#social-links.col-md-2
             a(href="https://github.com/shezarkhani/gooyand", title="GitHub", rel='nofollow')
               i.icon-github
       div.container

@@ -2,15 +2,15 @@ extends layout
 
 block content
   div.row
-    div.span6
+    div.col-md-6
       div.row
-        mixin section-box(6, 'Newspapers', 'newspapers')
+        mixin section-box(12, 'Newspapers', 'newspapers')
       div#newspapers.row.newspapers
-        div.span6
+        div.col-md-12
           div.row
             - var i = 0
             each list, letter in links.news
-              div.span2.link-container
+              div.col-md-4.link-container
                 div.header
                   div.letter-box= letter
                 div.links
@@ -20,25 +20,26 @@ block content
                       li(data-numclicks=link.num_clicks, class=klass)
                         a(href=link.url, id=link._id, target='_blank', rel='nofollow')= link.title
 
-    div.span5.offset1
+    div.col-md-5.col-md-offset-1
       div.row
-        mixin section-box(5, 'Blogs', 'blogs')
+        mixin section-box(12, 'Blogs', 'blogs')
         div#blogs
-          div.span5.link-container
-            div.links
-              ul
-                each list, letter in links.blog
-                  each link in list
-                    - var klass = (link.num_clicks > 5 ? 'popular' : '')
-                    li(data-numclicks=link.num_clicks, class=klass)
-                      a(href=link.url, id=link._id, target='_blank', rel='nofollow')= link.title
+          div.row
+            div.col-md-12.link-container
+              div.links
+                ul
+                  each list, letter in links.blog
+                    each link in list
+                      - var klass = (link.num_clicks > 5 ? 'popular' : '')
+                      li(data-numclicks=link.num_clicks, class=klass)
+                        a(href=link.url, id=link._id, target='_blank', rel='nofollow')= link.title
 
       div#sports-radio-tv.row
-        div.span2
+        div.col-md-5
           div.row
-            mixin section-box(2, 'Sports', 'sports')
+            mixin section-box(12, 'Sports', 'sports')
             div#sports
-              div.span2.link-container
+              div.link-container
                 div.links
                   ul
                     each list, letter in links.sport
@@ -46,11 +47,11 @@ block content
                         - var klass = (link.num_clicks > 5 ? 'popular' : '')
                         li(data-numclicks=link.num_clicks, class=klass)
                           a(href=link.url, id=link._id, target='_blank', rel='nofollow')= link.title
-        div.span3
+        div.col-md-6.col-md-offset-1
           div.row
-            mixin section-box(3, 'Radio & TV', 'rtv')
+            mixin section-box(12, 'Radio & TV', 'rtv')
             div#rtv
-              div.span3.link-container
+              div.link-container
                 div.links
                   ul
                     each list, letter in links.radio_tv
